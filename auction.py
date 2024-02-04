@@ -13,9 +13,9 @@ def bidding_func():
             bidders[name] = bid
             restart = input("Are there any other bidders! Yes or No?: ").lower()
             break
+
         except ValueError:
             print("Enter a number please!\n")
-
 
     return restart
 
@@ -23,4 +23,13 @@ def bidding_func():
 while "yes" in bidding_func():
     system("cls")
 
-print(bidders)
+
+num = 0
+for i in bidders:
+    if num < bidders[i]:
+        num = bidders[i]
+        winner = i
+
+
+system("cls")
+print(f"The winners is {winner} with a bid of £{bidders[winner]}!")
