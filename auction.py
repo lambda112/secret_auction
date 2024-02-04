@@ -1,19 +1,26 @@
-print("Welcome to the secret auction!")
+from os import system
 
 bidders = {}
-name = input("What is your name?: ").capitalize()
+print("Welcome to the secret auction!")
 
 
-while True:
-    try:
-        bid = int(input (f"Hello {name}! What is your bid?: £"))
-        break
-    except ValueError:
-        print("Enter a number please!\n")
+def bidding_func():
+    
+    while True:
+        try:
+            name = input("What is your name?: ").capitalize()
+            bid = int(input (f"Hello {name}! What is your bid?: £"))
+            bidders[name] = bid
+            restart = input("Are there any other bidders! Yes or No?: ").lower()
+            break
+        except ValueError:
+            print("Enter a number please!\n")
 
 
-restart = input("Are there any other bidders! Yes or No?: ").lower()
+    return restart
 
-print(name)
-print(bid)
-print(restart)
+
+while "yes" in bidding_func():
+    system("cls")
+
+print(bidders)
